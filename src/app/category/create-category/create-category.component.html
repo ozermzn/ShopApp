@@ -1,0 +1,21 @@
+<div class="container-fluid p-5">
+  <h1 class="mb-3">Create product</h1>
+  <div class="mb-3">
+    <input
+      #name="ngModel"
+      type="text"
+      name="name"
+      placeholder="Name"
+      class="form-control"
+      required
+      minlength="5"
+      [(ngModel)]="model.name"
+    />
+    <div class="text-danger" *ngIf="name.invalid && name.touched">
+      Least 5 characters.
+    </div>
+  </div>
+  <button class="btn btn-outline-success" (click)="createCategory(name)">
+    Save
+  </button>
+</div>

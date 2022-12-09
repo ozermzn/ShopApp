@@ -1,0 +1,81 @@
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+
+  .row {
+    color: gray;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    width: 1000px;
+    margin-top: 3rem;
+    padding: 1rem;
+    border-radius: 14px;
+
+    .img-fluid {
+      height: 500px;
+      border-radius: 14px;
+    }
+    .for-form {
+      align-self: center;
+    }
+    .login-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      button {
+        position: relative;
+        z-index: 1;
+        border: none;
+        transition: 0.4s ease;
+        &::before,
+        &::after {
+          position: absolute;
+          content: "";
+          z-index: -1;
+        }
+      }
+
+      .btn-auth {
+        background-color: #6d9886;
+        color: white;
+        width: 200px;
+        transition: all 0.2s ease;
+        &:hover {
+          opacity: 0.9;
+          box-shadow: 0 0 5px #6d9886, 0 0 5px #6d9886, 0 0 5px #6d9886,
+            0 0 30px #6d9886;
+        }
+      }
+
+      .swip-btn {
+        margin-left: 1rem;
+        border: none;
+        color: #6d9886;
+        background-color: white;
+      }
+    }
+  }
+  input {
+    caret-color: #6d9886;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+    .img-fluid {
+      width: 500px;
+      height: 340px !important;
+      border-radius: 14px;
+      margin: 20px 0px;
+      object-fit: cover;
+    }
+    .login-buttons{
+      gap: 2rem;
+    }
+  }
+}

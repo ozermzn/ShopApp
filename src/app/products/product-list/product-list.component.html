@@ -1,0 +1,52 @@
+<body>
+  <div class="d-flex align-items-center" id="loading" *ngIf="loading">
+    <strong class="mx-4">Loading... </strong>
+    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+  </div>
+  <div class="container m-5" *ngFor="let item of products">
+    <div class="card" *ngIf="!loading">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="imageUrl">
+            <img
+              src="../../assets/img/{{ item.imageUrl }}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <div class="card-text">
+              <p class="text-muted">
+                {{ item.description }}
+              </p>
+            </div>
+            <div class="card-price">
+              <div>
+                {{ item.price }} <span class="text-muted fw-1">TL</span>
+              </div>
+            </div>
+            <div class="buttons">
+              <div class="" *ngIf="item.isActive">
+                <button type="button" class="btn btn-success">Add +</button>
+              </div>
+              <div class="" *ngIf="!item.isActive">
+                <button type="button" class="btn btn-danger disabled">
+                  Over
+                </button>
+              </div>
+              <a
+                *ngIf="item.isActive"
+                routerLink="/products/{{ item.id }}"
+                class="btn btn-info text-white"
+                >Details</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

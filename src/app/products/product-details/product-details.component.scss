@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  margin: 150px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-body {
+  margin: 1rem;
+  .card-title {
+    margin-bottom: 1rem;
+  }
+}
+.border-bottom {
+  background-color: red;
+  width: 150px;
+  height: 2px;
+}
+.stars {
+  color: goldenrod;
+}
+.price {
+  color: green;
+  margin: 1rem 0;
+}
+.price-btn {
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  gap: 2rem;
+}
+.btn {
+  width: 200px;
+  height: 30px;
+}
+#discount {
+  text-decoration: line-through;
+  font-size: 17px;
+}

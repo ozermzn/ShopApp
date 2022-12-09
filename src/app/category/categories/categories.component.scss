@@ -1,0 +1,32 @@
+// Colors
+$white-color: #f7f7f7;
+$primary-color: #6d9886;
+$secondary: #f2e7d5;
+$black-color: #393e46;
+$orange-color: #ef9a53;
+
+.container {
+  .categories {
+    .row {
+      .col-6 {
+        display: flex;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(
+          to right,
+          $primary-color,
+          $orange-color
+        );
+        h2 {
+          color: $white-color;
+        }
+        img {
+          max-width: 800px;
+          max-height: 500px;
+          image-rendering: optimizeSpeed;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+<div class="container"></div>
+<div class="container-fluid p-5">
+  <h1 class="mb-3">Create product</h1>
+  <div class="alert alert-danger text-center" *ngIf="error">
+    {{ error }}
+  </div>
+  <form #form="ngForm" (ngSubmit)="saveProduct()">
+    <div class="mb-3">
+      <input
+        required
+        [(ngModel)]="model.name"
+        minlength="8"
+        maxlength="20"
+        type="text"
+        name="name"
+        #name="ngModel"
+        class="form-control"
+        placeholder="Name"
+      />
+      <div class="text-danger mt-3" *ngIf="name.invalid && name.touched">
+        Lütfen en az 8 karakter olacak şekilde ad giriniz.
+      </div>
+    </div>
+    <div class="mb-3">
+      <input
+        [(ngModel)]="model.price"
+        required
+        min="0"
+        max="100000"
+        type="number"
+        #price="ngModel"
+        name="price"
+        class="form-control"
+        placeholder="Price"
+      />
+    </div>
+    <div class="text-danger" *ngIf="price.invalid && price.touched">
+      Eksi değerde ve 100.000'den fazla değer girmeyiniz.
+    </div>
+    <div class="mb-3">
+      <input
+        [(ngModel)]="model.imageUrl"
+        type="text"
+        required
+        minlength="5"
+        name="imageUrl"
+        #imageUrl="ngModel"
+        class="form-control"
+        placeholder="Image Url"
+      />
+    </div>
+
+    <div class="mb-3">
+      <textarea
+        name="description"
+        id="description"
+        class="form-control"
+        placeholder="Description"
+        [(ngModel)]="model.description"
+        required
+        #description="ngModel"
+        minlength="20"
+      ></textarea>
+    </div>
+    <div class="text-danger" *ngIf="description.invalid && description.touched">
+      Lütfen en az 8 karakter olacak şekilde ad giriniz.
+    </div>
+    <div class="mb-3 form-chech">
+      <label for="isActive" class="form-check-label">Is Active?</label>
+      <input
+        [(ngModel)]="model.isActive"
+        type="checkbox"
+        name="isActive"
+        class="form-check-input mx-3"
+      />
+    </div>
+    <div class="mb-3">
+      <select
+        [(ngModel)]="model.categoryId"
+        name="categoryId"
+        id="categoryId"
+        class="form-select"
+      >
+        <option value="0">Category</option>
+        <option *ngFor="let item of categories" value="{{ item.id }}">
+          {{ item.name }}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+      Save
+    </button>
+  </form>
+</div>

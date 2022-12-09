@@ -1,0 +1,15 @@
+<div class="containers">
+  <div class="categories">
+    <ul class="category-list">
+      <li class="category-select" *ngFor="let category of categories">
+        <a
+          (click)="selectCategory(category)"
+          routerLink="/products/categories/{{ category.id }}"
+          class="nav-item"
+          [class.active]="category == selectedCategory"
+          >{{ category.name }}</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <div class="row" *ngIf="!loading">
+    <div class="col-6">
+      <img src="../../assets/img/login-bg.jpg" class="img-fluid" alt="" />
+    </div>
+    <div class="col-6 for-form">
+      <div class="alert alert-danger mb-5" *ngIf="error">
+        {{ error }}
+      </div>
+      <i class="fa-solid fa-user fa-lg mx-2"></i>
+      <form #form="ngForm" (ngSubmit)="handleAuth(form)">
+        <div class="mb-3">
+          <label for="email" id="email" class="form-label">Email</label>
+          <input
+            #email="ngModel"
+            [(ngModel)]="model.email"
+            name="email"
+            email
+            required
+            type="email"
+            class="form-control"
+            minlength="5"
+          />
+          <div class="text-danger mt-3" *ngIf="email.touched && email.invalid">
+            Email is invalid.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" id="password" class="form-label"
+            >Password</label
+          >
+          <input
+            name="password"
+            required
+            #password="ngModel"
+            [(ngModel)]="model.password"
+            minlength="5"
+            type="password"
+            class="form-control"
+          />
+          <div
+            class="text-danger mt-3"
+            *ngIf="password.touched && password.invalid"
+          >
+            Minimum 5 characters need
+          </div>
+        </div>
+        <div class="login-buttons" *ngIf="isLogin">
+          <button type="submit" [disabled]="form.invalid" class="btn btn-auth">
+            Login
+          </button>
+          <div>
+            Register?
+            <button type="button" class="swip-btn" (click)="log()">
+              <i class="fa-solid fa-repeat"></i>
+            </button>
+          </div>
+        </div>
+        <div class="login-buttons" *ngIf="!isLogin">
+          <button type="submit" [disabled]="form.invalid" class="btn btn-auth">
+            Register
+          </button>
+          <div>
+            Login?
+            <button type="button" class="swip-btn" (click)="log()">
+              <i class="fa-solid fa-repeat"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="d-flex align-items-center" id="loading" *ngIf="loading">
+    <strong class="mx-4">Loading... </strong>
+    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+  </div>
+</div>

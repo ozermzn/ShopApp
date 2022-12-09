@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand bg-light">
+  <div class="container-fluid">
+    <div id="logo-nav">
+      <a class="navbar-brand" routerLink="/home">
+        <img src="../../assets/img/shop.png" alt="" />
+      </a>
+    </div>
+    <!-- <button type="button" class="btn btn-primary" id="showerNav">Gizle</button> -->
+    <div class="navbar-collapse justify-content-between" id="inLinks">
+      <button
+        type="button"
+        class="btn ms-auto btnMenu"
+        (click)="show(menuButton)"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul
+        class="navbar-nav me-auto mb-2 mb-lg-0 hide"
+        id="menuButton"
+        #menuButton
+      >
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products">Products</a>
+        </li>
+
+        <li class="nav-item" *ngIf="isAdmin">
+          <a id="dropdown" class="nav-link" (click)="drpDown()">
+            Create <i class="fa-solid fa-caret-right"></i
+          ></a>
+        </li>
+        <div class="drpdown" *ngIf="hide">
+          <ul *ngIf="isAuth">
+            <a routerLink="/create/product-create">
+              <li>Create Product</li>
+            </a>
+            <a routerLink="create/create-categories">
+              <li>Create Category</li>
+            </a>
+          </ul>
+        </div>
+      </ul>
+      <div class="navbar-nav auto mb-2 mb-lg-0" #menuButton>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/auth" *ngIf="!isAuth"
+            >Login & Sign up</a
+          >
+        </li>
+        <li class="nav-item" id="drpDown-group" (click)="drpDownAuth()">
+          <a class="nav-link" id="account" *ngIf="isAuth" (click)="logout()">
+            Logout
+            <i class="fa-solid fa-user mx-2"></i>
+          </a>
+        </li>
+      </div>
+    </div>
+  </div>
+</nav>
+<app-mini-category></app-mini-category>

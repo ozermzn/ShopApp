@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="card mb-3" id="card-detail">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          src="../../../assets/img/{{ product?.imageUrl }}"
+          class="img-fluid rounded-start"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ product?.name }}
+            <div class="border-bottom"></div>
+          </h5>
+          <div class="stars mb-2">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <p class="card-text">{{ product?.description }}</p>
+          <div class="price-btn">
+            <button class="btn btn-success">
+              <i class="fa-solid fa-cart-shopping"></i>
+              Add to Basket
+            </button>
+            <p class="price">
+              {{ product?.price }}
+              <span class="text-muted">₺</span>
+            </p>
+            <p id="discount" class="text-muted">42000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #star>
+  <span> </span>
+</ng-template>
